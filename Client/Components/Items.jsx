@@ -1,0 +1,46 @@
+import React from 'react';
+import { PageTitle, ItemRow, GoldenSpatula, BFSword, RecurveBow, NeedlesslyLargeRod, NegatronCloak, GiantsBelt, ChainVest, TearOfTheGoddess, SparringGloves } from '../Styled/Items.js';
+
+class Items extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+    }
+    this.goldenSpatulaClicked = this.goldenSpatulaClicked.bind(this);
+    this.BFSwordClicked = this.BFSwordClicked.bind(this);
+    this.recurveBowClicked = this.recurveBowClicked.bind(this);
+    this.needlesslyLargeRodClicked = this.needlesslyLargeRodClicked.bind(this);
+    this.negatronCloakClicked = this.negatronCloakClicked.bind(this);
+  }
+
+  goldenSpatulaClicked() {this.props.itemClicked('goldenSpatula');}
+  BFSwordClicked() {this.props.itemClicked('BFSword');}
+  recurveBowClicked() {this.props.itemClicked('recurveBow');}
+  needlesslyLargeRodClicked() {this.props.itemClicked('needlesslyLargeRod');}
+  negatronCloakClicked() {this.props.itemClicked('negatronCloak');}
+
+  render () {
+    return (
+      <div id={this.props.id}>
+        <PageTitle>ITEMS</PageTitle>
+
+        <ItemRow>
+          <GoldenSpatula onClick={this.goldenSpatulaClicked}></GoldenSpatula>
+          <BFSword onClick={this.BFSwordClicked}></BFSword>
+          <RecurveBow onClick={this.recurveBowClicked}></RecurveBow>
+          <NeedlesslyLargeRod onClick={this.needlesslyLargeRodClicked}></NeedlesslyLargeRod>
+          <NegatronCloak onClick={this.negatronCloakClicked}></NegatronCloak>
+          <GiantsBelt></GiantsBelt>
+        </ItemRow>
+
+        <ItemRow>
+          <ChainVest></ChainVest>
+          <TearOfTheGoddess></TearOfTheGoddess>
+          <SparringGloves></SparringGloves>
+        </ItemRow>
+      </div>
+    )
+  }
+}
+
+export default Items;
