@@ -13,11 +13,11 @@ class Items extends React.Component {
     this.negatronCloakClicked = this.negatronCloakClicked.bind(this);
   }
 
-  goldenSpatulaClicked() {this.props.itemClicked('goldenSpatula');}
-  BFSwordClicked() {this.props.itemClicked('BFSword');}
-  recurveBowClicked() {this.props.itemClicked('recurveBow');}
-  needlesslyLargeRodClicked() {this.props.itemClicked('needlesslyLargeRod');}
-  negatronCloakClicked() {this.props.itemClicked('negatronCloak');}
+  goldenSpatulaClicked() {this.props.itemClicked('Spatula');}
+  BFSwordClicked() {this.props.itemClicked('B.F. Sword');}
+  recurveBowClicked() {this.props.itemClicked('Recurve Bow');}
+  needlesslyLargeRodClicked() {this.props.itemClicked('Needlessly Large Rod');}
+  negatronCloakClicked() {this.props.itemClicked('Negatron Cloak');}
 
   render () {
     return (
