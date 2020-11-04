@@ -9,13 +9,18 @@ class App extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      appChampionClicked: 'Aatrox',
-      appItemClicked: 'B.F. Sword',
+      appChampionClicked: '',
+      appItemClicked: '',
       championData: '',
       itemData: '',
+      summonerName: '',
+      summonerId: '',
+      summonerInfo: '',
     }
     this.renderItem = this.renderItem.bind(this);
     this.renderChampion = this.renderChampion.bind(this);
+    this.getSummonerId = this.getSummonerId.bind(this);
+    this.getSummonerInfo = this.getSummonerInfo.bind(this);
   }
 
   componentDidMount() {
@@ -51,13 +56,32 @@ class App extends React.Component {
     });
   }
 
+  handleSummonerName(event) {
+    this.setState({
+      summonerName: event.target.value
+    });
+  }
+
+  getSummonerId() {
+    fetch(`http://localhost:3001/api/summoner/${this.state.summonerName}`)
+      .then(res => res.json())
+      .then(data => this.setState({summonerId: data.data.id}))
+      .then(() => {this.getSummonerInfo()});
+  }
+
+  getSummonerInfo() {
+    fetch(`http://localhost:3001/api/summonerInfo/${this.state.summonerId}`)
+      .then(res => res.json())
+      .then(data => this.setState({summonerInfo: data.data[0]}));
+  }
+
   render () {
     return (
       <div id="App">
         <Champions id="Champions" championClicked={this.championClicked.bind(this)}></Champions>
         <Title id="Title"></Title>
         <Items id="Items" itemClicked={this.itemClicked.bind(this)}></Items>
-        <Board id="Board" champion={this.state.championClicked} item={this.state.itemClicked} championData={this.state.championData} itemData={this.state.itemData}></Board>
+        <Board id="Board" champion={this.state.championClicked} item={this.state.itemClicked} championData={this.state.championData} itemData={this.state.itemData} handleSummonerName={this.handleSummonerName.bind(this)} getSummonerId={this.getSummonerId} summonerInfo={this.state.summonerInfo}></Board>
       </div>
     )
   }

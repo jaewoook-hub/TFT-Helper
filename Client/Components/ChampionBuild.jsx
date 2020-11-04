@@ -18,7 +18,7 @@ function ChampionBuild(props) {
               <div>Best Build: Chosen Assassins</div>
             </BuildContainer>
   } else {
-    return <div></div>
+    return <BuildContainer>Pick a Champion</BuildContainer>
   }
 }
 

@@ -24,7 +24,7 @@ function ItemBuild(props) {
               <div>Recurve Bow + Giant's Belt = Zz'Rot Portal</div>
             </BuildContainer>
   } else {
-    return <div></div>
+    return <BuildContainer>Select an Item</BuildContainer>
   }
 }
 
